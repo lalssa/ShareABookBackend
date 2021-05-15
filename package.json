@@ -2,10 +2,13 @@
     "name": "share_a_book_backend",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "ts-node-dev ./app.ts"
+        "start": "node dist/app.js",
+        "postinstall": "tsc",
+        "watch-node": "nodemon dist/app.js",
+        "watch-ts": "tsc -w",
+        "deploy": "git add . && git commit -m Heroku && git push heroku master"
     },
     "keywords": [],
     "author": "",
@@ -18,6 +21,12 @@
         "typescript": "^4.2.4"
     },
     "dependencies": {
-        "express": "^4.17.1"
+        "algoliasearch": "^4.9.1",
+        "express": "^4.17.1",
+        "express-async-errors": "^3.1.1",
+        "firebase-admin": "^9.7.0"
+    },
+    "engines": {
+        "node": "14.16.0"
     }
 }
