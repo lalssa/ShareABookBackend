@@ -4,6 +4,7 @@ import {
     deleteBook,
     getBookById,
     getBooks,
+    getUserBooks,
     updateBook,
 } from "../controllers/book";
 import isAuth from "../middleware/is_auth";
@@ -13,6 +14,8 @@ const router = Router();
 
 router.get("/:objectID", isAuth, getBookById);
 router.get("/", getBooks);
+// router.get("/popular", getPopularBooks);
+router.get("/user", isAuth, getUserBooks);
 router.post("/", isAuth, addBook);
 router.put("/:objectID", isAuth, updateBook);
 router.delete("/:objectID", isAuth, deleteBook);
