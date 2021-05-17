@@ -134,7 +134,7 @@ export const updateBook = async (
 ): Promise<Response> => {
     const userId = req.userId;
     const { objectID } = req.params;
-    const userBook: UserBook = req.body.bookDocument;
+    const userBook: UserBook = req.body.bookDocument.userBook;
     const bookDocument: BookDocument = {
         userBook,
         objectID,
