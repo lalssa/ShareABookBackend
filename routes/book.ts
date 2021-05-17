@@ -12,7 +12,7 @@ import isRegisteredInDB from "../middleware/is_registered_in_db";
 
 const router = Router();
 
-router.get("/:objectID", isAuth, getBookById);
+// router.get("/:objectID", isAuth, getBookById);
 router.get("/", getBooks);
 // router.get("/popular", getPopularBooks);
 router.get("/user", isAuth, getUserBooks);
