@@ -72,7 +72,9 @@ export const getUserBooks = async (
     res: Response,
     next: NextFunction
 ): Promise<Response> => {
-    const bookDocuments = await index.search<BookDocument>(req.userId);
+    const bookDocuments = await index.search<BookDocument>(req.userId, {
+        restrictSearchableAttributes: ["userBook.userId"],
+    });
 
     if (bookDocuments) {
         return res.status(200).send({
