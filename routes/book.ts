@@ -13,7 +13,7 @@ const router = Router();
 
 router.get("/:objectID", isAuth, getBookById);
 router.get("/", getBooks);
-router.post("/", isAuth, isRegisteredInDB, addBook);
+router.post("/", isAuth, addBook);
 router.put("/:objectID", isAuth, updateBook);
 router.delete("/:objectID", isAuth, deleteBook);
 
