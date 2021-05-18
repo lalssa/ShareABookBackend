@@ -72,7 +72,7 @@ export const getPopularBooks = async (
     res: Response,
     next: NextFunction
 ): Promise<Response> => {
-    const bookDocuments = await index.search("", { length: 10 });
+    const bookDocuments = await index.search("", { length: 2 });
 
     if (bookDocuments) {
         return res.status(200).send({
