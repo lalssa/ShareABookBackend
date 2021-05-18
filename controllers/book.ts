@@ -67,6 +67,25 @@ export const getBooks = async (
     throw error;
 };
 
+export const getPopularBooks = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<Response> => {
+    const bookDocuments = await index.search("", { length: 10 });
+
+    if (bookDocuments) {
+        return res.status(200).send({
+            message: "Popular Books fetched",
+            bookDocuments: bookDocuments.hits,
+            uid: req.userId,
+        });
+    }
+    const error = new CustomError("No books found");
+    error.statusCode = 500;
+    throw error;
+};
+
 export const getUserBooks = async (
     req: Request,
     res: Response,
