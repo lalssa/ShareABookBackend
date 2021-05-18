@@ -4,6 +4,6 @@ import isAuth from "../middleware/is_auth";
 
 const router = Router();
 
-router.get("/", isAuth, stripePay);
+router.get("/", stripePay);
 
 export default router;
