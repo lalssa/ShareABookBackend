@@ -9,6 +9,7 @@ admin.initializeApp({
 
 import express, { NextFunction, Request, Response } from "express";
 import bookRoutes from "./routes/book";
+import paymentRoutes from "./routes/payment";
 import CustomError from "./interfaces/custom_error";
 
 const app = express();
@@ -17,6 +18,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/book", bookRoutes);
+app.use("/payment", paymentRoutes);
 
 app.use(
     (error: CustomError, req: Request, res: Response, next: NextFunction) => {

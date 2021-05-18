@@ -15,7 +15,7 @@ const router = Router();
 
 // router.get("/:objectID", isAuth, getBookById);
 router.get("/", getBooks);
-router.get("/popular", getPopularBooks);
+// router.get("/popular", getPopularBooks);
 router.get("/user", isAuth, getUserBooks);
 router.post("/", isAuth, addBook);
 router.put("/:objectID", isAuth, updateBook);
